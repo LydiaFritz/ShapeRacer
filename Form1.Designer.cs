@@ -28,9 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.harePic = new System.Windows.Forms.PictureBox();
             this.tortPic = new System.Windows.Forms.PictureBox();
+            this.moveTimer = new System.Windows.Forms.Timer(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.harePic)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tortPic)).BeginInit();
             this.SuspendLayout();
@@ -57,12 +60,28 @@
             this.tortPic.TabStop = false;
             this.tortPic.Paint += new System.Windows.Forms.PaintEventHandler(this.tortPic_Paint);
             // 
+            // moveTimer
+            // 
+            this.moveTimer.Interval = 250;
+            this.moveTimer.Tick += new System.EventHandler(this.moveTimerEvent);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(30, 428);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 471);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tortPic);
             this.Controls.Add(this.harePic);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -70,7 +89,6 @@
             this.Text = "Shape Racer";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form1_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.harePic)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tortPic)).EndInit();
             this.ResumeLayout(false);
@@ -82,6 +100,8 @@
 
         private System.Windows.Forms.PictureBox harePic;
         private System.Windows.Forms.PictureBox tortPic;
+        private System.Windows.Forms.Timer moveTimer;
+        private System.Windows.Forms.Button button1;
     }
 }
 
